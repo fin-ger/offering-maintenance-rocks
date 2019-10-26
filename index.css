@@ -14,12 +14,6 @@ body > * {
     flex-direction: column;
 }
 
-@media (min-width: 768px) {
-    body > * > section {
-        width: 768px;
-    }
-}
-
 header {
     background: #F2FAEB;
     color: #6B815A;
@@ -39,41 +33,6 @@ main {
 
 main > section {
     position: relative;
-}
-
-main div#arrow {
-    position: absolute;
-    right: calc(100% - 2em);
-    top: 1em;
-    bottom: 1em;
-    width: 100vw;
-    background: #eee;
-    border-radius: 10em;
-    z-index: 1;
-}
-
-main div#arrow::before {
-    content: "";
-    position: absolute;
-    width: 100vw;
-    height: 4.5em;
-    background: #F2FAEB;
-    border-radius: 4.5em;
-    border-top-left-radius: 0.5em;
-    border-bottom-left-radius: 0.5em;
-    right: 1em;
-    top: 1em;
-
-    z-index: 1;
-}
-
-main > section:nth-child(even) {
-    padding: 3em 0;
-    padding-left: 4em;
-}
-
-main > section:nth-child(odd) {
-    padding-right: 0;
 }
 
 main a {
@@ -99,18 +58,6 @@ nav {
     font-size: 90%;
 }
 
-nav > section {
-    display: grid;
-    grid-template-columns: 3fr auto 4fr auto 3fr;
-    grid-template-areas:
-        "links sep1 related sep2 authors"
-        "badges badges badges badges badges";
-    justify-items: start;
-    align-items: start;
-    justify-content: center;
-    align-content: start;
-}
-
 nav > section > section {
     position: relative;
     padding: 0 2em;
@@ -122,14 +69,6 @@ nav section.sep1 {
 
 nav section.sep2 {
     grid-area: sep2;
-}
-
-nav section.sep1, nav section.sep2 {
-    height: 80%;
-    width: 1px;
-    background: white;
-    padding: 0;
-    align-self: center;
 }
 
 nav section.links {
@@ -173,4 +112,119 @@ nav h1 {
 nav img {
     height: 32px;
     width: 32px;
+}
+
+@media (min-width: 768px) {
+    body > * > section {
+        width: 768px;
+    }
+
+    main div#arrow {
+        position: absolute;
+        right: calc(100% - 2em);
+        top: 1em;
+        bottom: 1em;
+        width: 100vw;
+        background: #eee;
+        border-radius: 10em;
+        z-index: 1;
+    }
+
+    main div#arrow::before {
+        content: "";
+        position: absolute;
+        width: 100vw;
+        height: 4.5em;
+        background: #F2FAEB;
+        border-radius: 4.5em;
+        border-top-left-radius: 0.5em;
+        border-bottom-left-radius: 0.5em;
+        right: 1em;
+        top: 1em;
+
+        z-index: 1;
+    }
+
+    main > section:nth-child(even) {
+        padding: 3em 0;
+        padding-left: 4em;
+    }
+
+    main > section:nth-child(odd) {
+        padding-right: 0;
+    }
+
+    nav > section {
+        display: grid;
+        grid-template-columns: 3fr auto 4fr auto 3fr;
+        grid-template-areas:
+            "links sep1 related sep2 authors"
+                "badges badges badges badges badges";
+        justify-items: start;
+        align-items: start;
+        justify-content: center;
+        align-content: start;
+    }
+
+    nav section.sep1, nav section.sep2 {
+        height: 80%;
+        width: 1px;
+        background: white;
+        padding: 0;
+        align-self: center;
+    }
+}
+
+@media (max-width: 768px) {
+    main div#arrow {
+        display: none;
+    }
+
+    main > section:nth-child(even) {
+        padding: 2em 1em;
+        position: relative;
+    }
+
+    main > section:nth-child(even)::before {
+        content: "";
+        position: absolute;
+        width: 80%;
+        left: 10%;
+        height: 2px;
+        background: #eee;
+        top: 1em;
+    }
+
+    main > section:nth-child(even)::after {
+        content: "";
+        position: absolute;
+        width: 80%;
+        left: 10%;
+        height: 2px;
+        background: #eee;
+        bottom: 1em;
+    }
+
+    section {
+        padding: 0 1em;
+    }
+
+    nav > section > section {
+        padding: 0;
+    }
+
+    nav section.sep1, nav section.sep2 {
+        height: 1px;
+        width: 80%;
+        background: white;
+        padding: 0;
+        margin: 2em 10%;
+    }
+
+    nav a {
+        padding: 0.5em 1em;
+        margin: 0.5em 0;
+        border-radius: 2px;
+        background: #444;
+    }
 }
