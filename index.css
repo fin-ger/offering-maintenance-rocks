@@ -1,0 +1,170 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: #333;
+    color: #fff;
+    font-family: Inter;
+}
+
+body > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    body > * > section {
+        width: 768px;
+    }
+}
+
+header {
+    background: #F2FAEB;
+    color: #6B815A;
+    padding: 4em 0 3em 0;
+}
+
+header h1 {
+    color: #5FA12C;
+}
+
+main {
+    padding: 2em 0;
+    background: #fff;
+    color: #333;
+    position: relative;
+}
+
+main > section {
+    position: relative;
+}
+
+main div#arrow {
+    position: absolute;
+    right: calc(100% - 2em);
+    top: 1em;
+    bottom: 1em;
+    width: 100vw;
+    background: #eee;
+    border-radius: 10em;
+    z-index: 1;
+}
+
+main div#arrow::before {
+    content: "";
+    position: absolute;
+    width: 100vw;
+    height: 4.5em;
+    background: #F2FAEB;
+    border-radius: 4.5em;
+    border-top-left-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    right: 1em;
+    top: 1em;
+
+    z-index: 1;
+}
+
+main > section:nth-child(even) {
+    padding: 3em 0;
+    padding-left: 4em;
+}
+
+main > section:nth-child(odd) {
+    padding-right: 0;
+}
+
+main a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #5FA12C;
+}
+
+main a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background: #FAEBEB;
+    color: #333;
+    padding: 2em 0;
+    border-bottom: 1em solid #fff;
+    text-align: center;
+}
+
+nav {
+    padding: 2em 0;
+    font-size: 90%;
+}
+
+nav > section {
+    display: grid;
+    grid-template-columns: 3fr 4fr 3fr;
+    grid-template-areas:
+        "links related authors"
+        "badges badges badges";
+    justify-items: start;
+    align-items: start;
+    justify-content: center;
+    align-content: start;
+}
+
+nav > section > section {
+    position: relative;
+    padding: 0 2em;
+}
+
+nav > section > section:not(:first-child):not(:last-child)::before {
+    content: "";
+    position: absolute;
+    height: 80%;
+    width: 1px;
+    background: white;
+    top: 10%;
+    left: 0;
+}
+
+nav section.links {
+    grid-area: links;
+    padding-left: 0;
+
+}
+
+nav section.related {
+    grid-area: related;
+}
+
+nav section.authors {
+    grid-area: authors;
+    padding-right: 0;
+}
+
+nav section.badges {
+    padding-top: 2em;
+    grid-area: badges;
+    text-align: center;
+    justify-self: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    line-height: 1.5em;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+nav h1 {
+    margin: 0;
+    padding-bottom: 1em;
+}
+
+nav img {
+    height: 32px;
+    width: 32px;
+}
