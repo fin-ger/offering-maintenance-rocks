@@ -8,7 +8,7 @@
         <link rel="stylesheet" type="text/css" href="index.css">
         <script>
          window.onload = () => {
-             document.getElementById("contact").href = decodeURI(window.location.hash.substr(1));
+             document.getElementById("contact").href = decodeURIComponent(window.location.hash.substr(1));
          };
         </script>
     </head>
