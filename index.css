@@ -101,10 +101,10 @@ nav {
 
 nav > section {
     display: grid;
-    grid-template-columns: 3fr 4fr 3fr;
+    grid-template-columns: 3fr auto 4fr auto 3fr;
     grid-template-areas:
-        "links related authors"
-        "badges badges badges";
+        "links sep1 related sep2 authors"
+        "badges badges badges badges badges";
     justify-items: start;
     align-items: start;
     justify-content: center;
@@ -116,14 +116,20 @@ nav > section > section {
     padding: 0 2em;
 }
 
-nav > section > section:not(:first-child):not(:last-child)::before {
-    content: "";
-    position: absolute;
+nav section.sep1 {
+    grid-area: sep1;
+}
+
+nav section.sep2 {
+    grid-area: sep2;
+}
+
+nav section.sep1, nav section.sep2 {
     height: 80%;
     width: 1px;
     background: white;
-    top: 10%;
-    left: 0;
+    padding: 0;
+    align-self: center;
 }
 
 nav section.links {
